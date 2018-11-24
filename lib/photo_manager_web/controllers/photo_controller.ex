@@ -16,6 +16,11 @@ defmodule PhotoManagerWeb.PhotoController do
 
   def create(conn, %{"photo" => photo_params}) do
     # persist the file
+
+    Photo.persist(photo_params["file"])
+
+    changeset = Photo.changeset(%Photo{}, photo_params)
+
     case Photos.create_photo(photo_params) do
       {:ok, photo} ->
         conn
