@@ -1,0 +1,2 @@
+defmodule Photos do
+end
